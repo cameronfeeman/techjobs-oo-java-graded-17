@@ -17,12 +17,12 @@ public class Job {
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
 
-    public Job () {
-        id = nextId ;
+    public Job() {
+        id = nextId;
         nextId++;
     }
 
-    public Job (String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
         this.name = name;
         this.employer = employer;
@@ -31,7 +31,6 @@ public class Job {
         this.coreCompetency = coreCompetency;
 
     }
-
 
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
@@ -98,6 +97,31 @@ public class Job {
     public int getId() {
         return id;
     }
-}
 
 
+    //Make method that has blank space before and after job info, label, correct data, is on it's own line and
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(System.lineSeparator());
+        stringBuilder.append("ID: ").append(id).append(System.lineSeparator());
+
+        stringBuilder.append("Name: ").append(name.isEmpty() ? "Data not available" : name).append(System.lineSeparator());
+
+        stringBuilder.append("Employer: ").append(employer.getValue().equals("") ? "Data not available" : employer).append(System.lineSeparator());
+        stringBuilder.append("Location: ").append(location.getValue().equals("") ? "Data not available" : location).append(System.lineSeparator());
+        stringBuilder.append("Position Type: ").append(positionType.getValue().equals("") ? "Data not available" : positionType).append(System.lineSeparator());
+        stringBuilder.append("Core Competency: ").append(coreCompetency.getValue().equals("") ? "Data not available" : coreCompetency).append(System.lineSeparator());
+
+        return stringBuilder.toString();
+//        return "\n" +
+//                "ID: " + id + System.lineSeparator() +
+//                "Name: " + name + System.lineSeparator() +
+//                "Employer: " + employer + System.lineSeparator() +
+//                "Location: " + location + System.lineSeparator() +
+//                "Position Type: " + positionType + System.lineSeparator() +
+//                "Core Competency: " + coreCompetency + System.lineSeparator() +
+//                "\n";
+//    }
+    }
+};

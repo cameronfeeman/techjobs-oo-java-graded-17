@@ -48,12 +48,69 @@ public class JobTest {
         //Check that they are not equal
         assertFalse(job1.equals(job2));
 
+    }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
 
 
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        //call toString method
+        String jobString = job.toString();
+
+        //check for blank line before and after job information
+        assertTrue(jobString.startsWith("\n"));
+        assertTrue(jobString.endsWith("\n"));
+
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData(){
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        //call method
+        String jobString = job.toString();
+
+        //make expected response with label, data, and line separator
+            String expectedString = "\n" +
+                        "ID: " + job.getId() + "\n" +
+                        "Name: " + job.getName() +"\n" +
+                        "Employer: " + job.getEmployer().getValue() + "\n" +
+                        "Location: " + job.getLocation().getValue() +"\n" +
+                        "Position Type: " + job.getPositionType().getValue() +"\n" +
+                        "Core Competency: " + job.getCoreCompetency().getValue() +"\n";
+
+            //check that expected equal to actual
+            assertEquals(expectedString, jobString);
 
 
     }
 
+    @Test
+    public void testToStringHandlesEmptyField() {
+
+        Job job = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+
+        //call method
+
+
+
+        String expectedString = "\nID: " + job.getId() + System.lineSeparator() +
+                "Name: Data not available" + System.lineSeparator() +
+                "Employer: Data not available" + System.lineSeparator() +
+                "Location: Data not available" + System.lineSeparator() +
+                "Position Type: Data not available" + System.lineSeparator() +
+                "Core Competency: Data not available" + System.lineSeparator();
+
+        //check that expected equal to actual
+
+        String jobString = job.toString();
+        assertEquals(expectedString, jobString);
+
+
+
+    }
 
 
     }
