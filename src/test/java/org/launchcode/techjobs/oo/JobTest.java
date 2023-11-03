@@ -90,12 +90,11 @@ public class JobTest {
     @Test
     public void testToStringHandlesEmptyField() {
 
+        //Set up empty fields to test Data not available
+
         Job job = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
 
-        //call method
-
-
-
+            //expected
         String expectedString = "\nID: " + job.getId() + System.lineSeparator() +
                 "Name: Data not available" + System.lineSeparator() +
                 "Employer: Data not available" + System.lineSeparator() +
@@ -103,9 +102,10 @@ public class JobTest {
                 "Position Type: Data not available" + System.lineSeparator() +
                 "Core Competency: Data not available" + System.lineSeparator();
 
-        //check that expected equal to actual
-
+        //call the method
         String jobString = job.toString();
+
+        //check expected equal to actual
         assertEquals(expectedString, jobString);
 
 

@@ -113,7 +113,10 @@ public class Job {
         stringBuilder.append("Position Type: ").append(positionType.getValue().equals("") ? "Data not available" : positionType).append(System.lineSeparator());
         stringBuilder.append("Core Competency: ").append(coreCompetency.getValue().equals("") ? "Data not available" : coreCompetency).append(System.lineSeparator());
 
+        //call contents of the stringBuilder
         return stringBuilder.toString();
+
+
 //        return "\n" +
 //                "ID: " + id + System.lineSeparator() +
 //                "Name: " + name + System.lineSeparator() +
