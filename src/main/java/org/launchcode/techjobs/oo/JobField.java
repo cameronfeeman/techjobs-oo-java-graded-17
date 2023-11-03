@@ -2,8 +2,10 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+//make abstract
 public abstract class JobField {
 
+    //Set unique ID for each Job
     private int id;
     private static int nextId = 1;
     private String value;
@@ -13,6 +15,7 @@ public abstract class JobField {
         nextId++;
     }
 
+    //assigns the correct value for position, skill, etc.
     public JobField(String value) {
         this();
         this.value = value;
@@ -26,6 +29,7 @@ public abstract class JobField {
         return value;
     }
 
+    //Check for equality
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
